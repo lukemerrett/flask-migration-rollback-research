@@ -128,6 +128,10 @@ This means the database isn't left in a state where only partial migrations have
 
 This proves all our theorised scenarios are correct.
 
+This works exactly the same in `multidb` mode; if 1 script across any of the databases fails on `upgrade`,
+every script in the batch across all databases is rolled back 
+(see the [behaviour-on-multi-db](https://github.com/lukemerrett/flask-migration-rollback-research/tree/behaviour-on-multi-db) branch)
+
 ### Command Reference
 
 * `flask db upgrade` - Will run will all scripts not already run into the target database
