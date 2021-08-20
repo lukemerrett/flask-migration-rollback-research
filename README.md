@@ -2,6 +2,8 @@
 
 Finding out what happens when a flask upgrade fails, in terms of rolling back the state of the database.
 
+This branch shows how it behaves when using `--multidb` mode.
+
 ## Background
 
 We want to understand what happens when a `flask db upgrade` fails in terms of the state of the database it
@@ -46,14 +48,15 @@ Install the dependencies required to run this demo by using:
 pip install -r requirements.txt
 ```
 
-Then launch the Postgres database container by running:
+Then launch the Postgres database containers by running:
 
 ```bash
 # The "-d" flag starts it in the background to free up your terminal
 docker compose up -d
 ```
 
-This will launch Postgres on localhost:6456 (a non-standard port to avoid any local Postgres installs you may have).
+This will launch one Postgres on localhost:6456 and one on localhost:7845 
+(non-standard ports to avoid any local Postgres installs you may have).
 
 ### Running each scenario
 

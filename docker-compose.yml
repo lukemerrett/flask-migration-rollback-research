@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  db:
+  db_first:
     image: postgres
     restart: always
     environment:
@@ -10,3 +10,13 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - "6456:5432"
+
+  db_second:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "7845:5432"
